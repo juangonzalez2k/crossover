@@ -42,6 +42,7 @@ div.table-container{
 }
 
 .modal-content {
+  position: relative;
   background-color: #222;
   padding: 80px;
   border-radius: 5px;
@@ -59,7 +60,7 @@ div.table-container{
 
 .close-btn {
   position: absolute;
-  top: 330px;
-  right: 590px;
+  top: 0px;
+  right: 0px;
   cursor: pointer;
 }
