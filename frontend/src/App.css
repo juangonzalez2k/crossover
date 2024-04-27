@@ -23,3 +23,43 @@ div.table-container{
   flex-direction: column;
   gap: 50px;
 }
+
+
+.modal-container {
+  text-align: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #222;
+  padding: 80px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 80%;
+  input{
+    padding: 10px;
+    margin: 10px;
+  }
+  button{
+    padding: 10px;
+    margin: 10px;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 330px;
+  right: 590px;
+  cursor: pointer;
+}

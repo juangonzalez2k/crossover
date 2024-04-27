@@ -6,6 +6,16 @@ import "./App.css";
 function App() {
   const [users, setUsers] = useState([]);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   const [update, setUpdate] = useState(false);
 
   const [name, setName] = useState("");
@@ -35,6 +45,20 @@ function App() {
     });
   };
 
+  const editUser = (id, newName, newEmail) => {
+    fetch(`http://localhost:3000/api/usuarios/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: newName, email: newEmail }),
+    }).then((res) => {
+      if (res.ok) {
+        console.log("Usuario editado");
+        setUsers(res.json());
+        setUpdate(true);
+      }
+    });
+  };
+
   useEffect(() => {
     const getUsers = () => {
       fetch("http://localhost:3000/api/usuarios", {
@@ -46,8 +70,8 @@ function App() {
     getUsers();
   }, [update]);
 
-  console.log(name);
-  console.log(email);
+  //console.log(name);
+  //console.log(email);
 
   return (
     <>
@@ -86,13 +110,28 @@ function App() {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>
-                  <button>Editar</button>
+                  <button onClick={openModal}>Editar</button>
                   <button onClick={() => deleteUser(user.id)}>Eliminar</button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        {isOpen && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close-btn" onClick={closeModal}>
+                <button>X</button>
+              </span>
+              <h2>Editar Usuario</h2>
+              <input type="text" value={name} placeholder="Nombre" />
+              <input type="text" value={email} placeholder="Email" />
+              <button onClick={() => editUser(newEmail, newName, id)}>
+                Guardar Cambios
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
