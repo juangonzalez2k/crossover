@@ -25,6 +25,36 @@ div.table-container{
 }
 
 
+button.button-edit{
+  width: 40px;
+}
+
+button.button-delete{
+  width: 40px;
+}
+
+
+table.table-all-container{
+  font-size: 16px;
+  border-collapse: collapse;
+  width: 80%;
+  border: 2px solid #ffff;
+  border-spacing: 0;
+}
+th, td {
+  width: 25%;
+  border: 1px solid #ffffff75;
+  padding: 12px;
+}
+
+.button-edit {
+  margin-right: 10px;
+}
+
+.button-delete {
+  margin-left: 10px;
+}
+
 .modal-container {
   text-align: center;
 }

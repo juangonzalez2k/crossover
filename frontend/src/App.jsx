@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Edit } from "./assets/icons/Edit.jsx";
+import { Delete } from "./assets/icons/Delete.jsx";
 import "./App.css";
 
 // [ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ]
@@ -172,7 +174,7 @@ function App() {
 
       <div className="table-container">
         <h1>Usuarios</h1>
-        <table>
+        <table className="table-all-container">
           <thead>
             <tr>
               <th>Id</th>
@@ -187,9 +189,19 @@ function App() {
                 <td>{user.id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>
-                  <button onClick={() => handleOpenModal(user)}>Editar</button>
-                  <button onClick={() => deleteUser(user.id)}>Eliminar</button>
+                <td className="td-container">
+                  <button
+                    className="button-edit"
+                    onClick={() => handleOpenModal(user)}
+                  >
+                    <Edit>Editar</Edit>
+                  </button>
+                  <button
+                    className="button-delete"
+                    onClick={() => deleteUser(user.id)}
+                  >
+                    <Delete>Eliminar</Delete>
+                  </button>
                 </td>
               </tr>
             ))}
