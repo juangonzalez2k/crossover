@@ -9,14 +9,7 @@ function App() {
   const [users, setUsers] = useState([]);
 
   const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  const [isOpenDelete, setIsOpenDelete] = useState(false);
 
   const [update, setUpdate] = useState(false);
 
@@ -28,6 +21,8 @@ function App() {
 
   const [findUser, setFindUser] = useState("");
   const [idUser, setIdUser] = useState("");
+
+  const [isSearch, setIsSearch] = useState(false);
 
   const [selectedUser, setSelectedUser] = useState({});
 
@@ -53,6 +48,7 @@ function App() {
       if (res.ok) {
         console.log("usuario eliminado");
         setUpdate(true);
+        closeDelete(true);
       }
     });
   };
@@ -81,7 +77,9 @@ function App() {
         if (data.length !== 0) {
           setFindUser(data[0]);
           setIdUser("");
+          setIsSearch(false);
         } else {
+          setIsSearch(true);
           throw console.error("Usuario no encontrado");
         }
       });
@@ -89,6 +87,22 @@ function App() {
 
   // console.log(newName);
   // console.log(newEmail);
+  const openDelete = () => {
+    setIsOpenDelete(true);
+  };
+
+  const closeDelete = () => {
+    setSelectedUser({});
+    setIsOpenDelete(false);
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   const handleOpenModal = (user) => {
     setSelectedUser(user.id);
@@ -97,11 +111,14 @@ function App() {
     setIsOpen(true);
   };
 
+  const handleOpenModalDelete = (user) => {
+    setSelectedUser(user.id);
+    setIsOpenDelete(true);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Llamar a la función editUser con los nuevos valores
     editUser(selectedUser, newName, newEmail);
-    // Limpiar los campos después de editar
     setNewName("");
     setNewEmail("");
     setSelectedUser("");
@@ -153,6 +170,11 @@ function App() {
             </table>
           </div>
         )}
+        {isSearch && (
+          <div>
+            <p>No se encontró el usuario</p>
+          </div>
+        )}
       </div>
 
       <div className="create-container">
@@ -198,7 +220,7 @@ function App() {
                   </button>
                   <button
                     className="button-delete"
-                    onClick={() => deleteUser(user.id)}
+                    onClick={() => handleOpenModalDelete(user)}
                   >
                     <Delete>Eliminar</Delete>
                   </button>
@@ -207,6 +229,20 @@ function App() {
             ))}
           </tbody>
         </table>
+        {isOpenDelete && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close-btn" onClick={closeDelete}>
+                <button>X</button>
+              </span>
+              <h2>¿Estas seguro que deseas eliminar el usuario?</h2>
+              <button onClick={() => deleteUser(selectedUser)}>
+                Confirmar
+              </button>
+              <button onClick={closeDelete}>Cancelar</button>
+            </div>
+          </div>
+        )}
         {isOpen && (
           <div className="modal">
             <div className="modal-content">
