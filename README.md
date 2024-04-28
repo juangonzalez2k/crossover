@@ -12,18 +12,19 @@ Para la ejecución y arranque de la aplicacion se necesita seguir los siguientes
 ##Clonar el repositorio 
 -Para comenzar con esto necesitas clonar este repositorio en tu maquina local utilizando el siguiente enlance:
 
--``Para http: git clone https://github.com/juangonzalez2k/crossover.git
--``Para SSh: git clone git@github.com:juangonzalez2k/crossover.git
+-``Para http: git clone https://github.com/juangonzalez2k/crossover.git``
+
+-``Para SSh: git clone git@github.com:juangonzalez2k/crossover.git``
 
 ##Iniciar el Backend
 -Para iniciar el Backend de esta aplicación es necesario acceder a la carpeta "Backend", para ello puedes acceder con el siguiente comando:
-``cd .\backend\
+``cd .\backend\``
 
 ##Iniciar el Frontend
 -Para iniciar la Aplicación y ver el Frontend es necesario acceder a la carpeta "Frontend", en donde debes acceder a los siguientes comandos:
-``cd .\frontend\
-``npm install
+``cd .\frontend\``
+``npm install``
 -Para empezar a correr la Aplicación es necesario el comando:
-``npm run dev
+``npm run dev``
 
 -Con estos pasos ya se debería inicializar tanto el backend como el frontend de la aplicacion y debería estar lista para usarse de manera correcta.
