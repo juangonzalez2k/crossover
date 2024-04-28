@@ -24,6 +24,10 @@ Para la ejecución y arranque de la aplicacion se necesita seguir los siguientes
 #Iniciar el Backend#
 -Para iniciar el Backend de esta aplicación es necesario acceder a la carpeta "Backend", para ello puedes acceder con el siguiente comando:
 ``cd .\backend\``
+-Posteriormente se deben instalar las dependencias:
+``npm install
+-Luego de esto ya se puede echar a andar el backend de la aplicación con el siguiente comando:
+``node .\app.js
 
 #Iniciar el Frontend#
 -Para iniciar la Aplicación y ver el Frontend es necesario acceder a la carpeta "Frontend", en donde debes acceder a los siguientes comandos:
