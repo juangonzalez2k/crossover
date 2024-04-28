@@ -12,8 +12,8 @@ Para la ejecución y arranque de la aplicacion se necesita seguir los siguientes
 ##Clonar el repositorio 
 -Para comenzar con esto necesitas clonar este repositorio en tu maquina local utilizando el siguiente enlance:
 
--Para http: git clone https://github.com/juangonzalez2k/crossover.git
--Para SSh: git clone git@github.com:juangonzalez2k/crossover.git
+-``Para http: git clone https://github.com/juangonzalez2k/crossover.git
+-``Para SSh: git clone git@github.com:juangonzalez2k/crossover.git
 
 ##Iniciar el Backend
 -Para iniciar el Backend de esta aplicación es necesario acceder a la carpeta "Backend", para ello puedes acceder con el siguiente comando:
