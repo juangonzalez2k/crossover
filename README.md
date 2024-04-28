@@ -9,7 +9,7 @@ Dentro de la carpeta DB se encontrará el script para la creación de la base de
 
 Para la ejecución y arranque de la aplicacion se necesita seguir los siguientes pasos:
 
-#Clonar el repositorio 
+#Clonar el repositorio#
 -Para comenzar con esto necesitas clonar este repositorio en tu maquina local utilizando el siguiente enlance:
 
 -``Para http: git clone https://github.com/juangonzalez2k/crossover.git``
@@ -21,11 +21,11 @@ Para la ejecución y arranque de la aplicacion se necesita seguir los siguientes
 
 -Luego de esto ya se pueden inicializar tanto el Backend como el Frontend
 
-#Iniciar el Backend
+#Iniciar el Backend#
 -Para iniciar el Backend de esta aplicación es necesario acceder a la carpeta "Backend", para ello puedes acceder con el siguiente comando:
 ``cd .\backend\``
 
-#Iniciar el Frontend
+#Iniciar el Frontend#
 -Para iniciar la Aplicación y ver el Frontend es necesario acceder a la carpeta "Frontend", en donde debes acceder a los siguientes comandos:
 ``cd .\frontend\``
 -Posteriormente debes instalar las dependencias con el siguiente comando:
