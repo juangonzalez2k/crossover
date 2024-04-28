@@ -13,10 +13,10 @@ Para la ejecución y arranque de la aplicación se necesitan seguir los siguient
 Para comenzar, clona este repositorio en tu máquina local utilizando el siguiente enlace:
 
 - Para HTTP:
-- ``git clone https://github.com/juangonzalez2k/crossover.git
+- ```git clone https://github.com/juangonzalez2k/crossover.git```
 
 - Para SSH:
-- ``git clone git@github.com:juangonzalez2k/crossover.git
+- ```git clone git@github.com:juangonzalez2k/crossover.git```
 
 ## Crear la base de datos
 
