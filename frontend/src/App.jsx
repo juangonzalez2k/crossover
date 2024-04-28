@@ -79,14 +79,13 @@ function App() {
           setIdUser("");
           setIsSearch(false);
         } else {
+          setFindUser({});
           setIsSearch(true);
           throw console.error("Usuario no encontrado");
         }
       });
   };
 
-  // console.log(newName);
-  // console.log(newEmail);
   const openDelete = () => {
     setIsOpenDelete(true);
   };
@@ -136,10 +135,6 @@ function App() {
     getUsers();
   }, [update]);
 
-  //console.log(name);
-  //console.log(email);
-  //console.log(findUser);
-
   return (
     <>
       <div>
@@ -149,7 +144,9 @@ function App() {
           onChange={(e) => setIdUser(e.target.value)}
           type="number"
         />
-        <button onClick={searchUser}>Buscar</button>
+        <button disabled={idUser === ""} onClick={searchUser}>
+          Buscar
+        </button>
         {Object.keys(findUser).length !== 0 && (
           <div className="table-container">
             <table>

@@ -48,7 +48,6 @@ app.post('/api/usuarios', (req, res) => {
 
 app.get('/api/usuarios', (req, res) => {
     const sql = 'SELECT * FROM user';
-
     db.query(sql, (err, result) => {
         if(err) {
             console.error(' Error al obtener usuarios', err);
