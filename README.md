@@ -35,7 +35,7 @@ Posteriormente instalar las dependencias con el siguiente comando:
 ```bash
 npm install
 ```
--Y luego de esto echar a andar el backend con el comando:
+Y luego de esto echar a andar el backend con el comando:
 ```bash
 node app.js
 ```
