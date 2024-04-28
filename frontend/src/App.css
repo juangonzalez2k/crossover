@@ -27,10 +27,12 @@ div.table-container{
 
 button.button-edit{
   width: 40px;
+  cursor: pointer;
 }
 
 button.button-delete{
   width: 40px;
+  cursor: pointer;
 }
 
 
