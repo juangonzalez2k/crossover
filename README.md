@@ -28,6 +28,7 @@ Para la ejecución y arranque de la aplicacion se necesita seguir los siguientes
 #Iniciar el Frontend
 -Para iniciar la Aplicación y ver el Frontend es necesario acceder a la carpeta "Frontend", en donde debes acceder a los siguientes comandos:
 ``cd .\frontend\``
+-Posteriormente debes instalar las dependencias con el siguiente comando:
 ``npm install``
 -Para empezar a correr la Aplicación es necesario el comando:
 ``npm run dev``
