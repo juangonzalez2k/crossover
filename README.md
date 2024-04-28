@@ -16,6 +16,11 @@ Para la ejecución y arranque de la aplicacion se necesita seguir los siguientes
 
 -``Para SSh: git clone git@github.com:juangonzalez2k/crossover.git``
 
+#Crear la base de datos
+-Para crear la Base de datos y posteriormente la Tabla "User" junto con sus atributos es necesario ingresar a la carpeta DB y ejecutar el codigo dentro de su motor de bases de datos, en este caso MYSQL.
+
+-Luego de esto ya se pueden inicializar tanto el Backend como el Frontend
+
 #Iniciar el Backend
 -Para iniciar el Backend de esta aplicación es necesario acceder a la carpeta "Backend", para ello puedes acceder con el siguiente comando:
 ``cd .\backend\``
