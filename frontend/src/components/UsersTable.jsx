@@ -76,9 +76,11 @@ export const UsersTable = (props) => {
         method: "GET",
       })
         .then((res) => res.json())
-        .then((data) => setUsers(data));
+        .then((data) => setUsers(data), setUpdate(false));
     };
-    getUsers();
+    if (update) {
+      getUsers();
+    }
   }, [update]);
 
   return (
