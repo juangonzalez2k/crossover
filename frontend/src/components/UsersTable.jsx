@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Edit } from "../assets/icons/Edit.jsx";
 import { Delete } from "../assets/icons/Delete.jsx";
+import { EyeOpen } from "../assets/icons/EyeOpen";
+import { EyeClose } from "../assets/icons/EyeClose";
 
 export const UsersTable = (props) => {
   const { update, setUpdate } = props;
@@ -11,6 +13,8 @@ export const UsersTable = (props) => {
   const [isOpenDelete, setIsOpenDelete] = useState(false);
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const [selectedUser, setSelectedUser] = useState({});
 
@@ -26,11 +30,19 @@ export const UsersTable = (props) => {
     });
   };
 
-  const editUser = (id, newName, newEmail) => {
+  const editUser = (id, newName, newEmail, newPassword) => {
+    let body = { name: newName, email: newEmail };
+    if (newPassword.length >= 8) {
+      body.password = newPassword;
+    }
     fetch(`http://localhost:3000/api/usuarios/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: newName, email: newEmail }),
+      body: JSON.stringify({
+        name: newName,
+        email: newEmail,
+        password: newPassword,
+      }),
     }).then((res) => {
       if (res.ok) {
         console.log("Usuario editado");
@@ -63,12 +75,15 @@ export const UsersTable = (props) => {
   };
 
   const handleSubmit = () => {
-    editUser(selectedUser, newName, newEmail);
+    editUser(selectedUser, newName, newEmail, newPassword);
     setNewName("");
     setNewEmail("");
+    setNewPassword("");
     setSelectedUser("");
     closeModal();
   };
+
+  const passwordRegex = /^[a-zA-Z0-9]+$/;
 
   useEffect(() => {
     const getUsers = () => {
@@ -150,6 +165,29 @@ export const UsersTable = (props) => {
               onChange={(e) => setNewEmail(e.target.value)}
               placeholder="Nuevo Email"
             />
+            <div className="input-container">
+              <div>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="Nueva Contraseña"
+                />
+                <button
+                  className="button-eye"
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <EyeOpen /> : <EyeClose />}
+                </button>
+              </div>
+              {newPassword.length < 8 && newPassword.length > 0 && (
+                <p>La contraseña debe tener mas de 8 caracteres</p>
+              )}
+              {!passwordRegex.test(newPassword) && newPassword.length > 0 && (
+                <p>La contraseña solo debe llevar letras y números</p>
+              )}
+            </div>
             <button onClick={handleSubmit}>Guardar Cambios</button>
           </div>
         </div>
